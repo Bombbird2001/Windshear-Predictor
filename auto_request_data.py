@@ -2,7 +2,7 @@ import requests
 import sys
 import json
 from bs4 import BeautifulSoup
-import os
+from pathlib import Path
 import time
 
 newText = []
@@ -73,8 +73,9 @@ for i in range(months):
 	else:
 		time.sleep(5)
 
+Path(arpt).mkdir(parents=True, exist_ok=True)
 f = open(arpt + "/" + arpt + ".txt", "w+")
 f.write('\n'.join(newText))
 f.close()
 
-os.system("parse_to_csv.py " + arpt)
+print(months, "month(s) of data for", arpt, "retrieved successfully")

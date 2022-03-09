@@ -1,0 +1,35 @@
+Neural model
+Layer 1 - 40 nodes ReLU, 0.001 L2 reg.
+Layer 2 - 20 nodes ReLU, 0.001 L2 reg.
+Output sigmoid
+LR 0.0005
+Epochs 20
+Batch size 100
+Classification threshold 0.45
+Validation split 0.3
+------------------------------------------------------------------------------------------------------------------
+1. Wind speed, wind gust, wind direction variation, rain, intensity, visibility, qnh
+Training:
+loss: 0.2086 - t-pos: 882.0000 - f-pos: 418.0000 - t-neg: 22198.0000 - f-neg: 1573.0000
+accuracy: 0.9205 - precision: 0.6522 - recall: 0.4033 - roc-auc: 0.9124 - pr-auc: 0.5859
+
+Validation:
+val_loss: 0.2143 - val_t-pos: 402.0000 - val_f-pos: 211.0000 - val_t-neg: 9461.0000 - val_f-neg: 672.0000
+val_accuracy: 0.9164 - val_precision: 0.6209 - val_recall: 0.4209 - val_roc-auc: 0.9084 - val_pr-auc: 0.5811
+
+Test:
+loss: 0.2097 - t-pos: 579.0000 - f-pos: 294.0000 - t-neg: 13565.0000 - f-neg: 929.0000
+accuracy: 0.9200 - precision: 0.6319 - recall: 0.4416 - roc-auc: 0.9125 - pr-auc: 0.5853
+------------------------------------------------------------------------------------------------------------------
+2. Above features + month:
+Training:
+loss: 0.2084 - t-pos: 899.0000 - f-pos: 432.0000 - t-neg: 22184.0000 - f-neg: 1556.0000
+accuracy: 0.9199 - precision: 0.6417 - recall: 0.4122 - roc-auc: 0.9144 - pr-auc: 0.5926
+
+Validation:
+val_loss: 0.2145 - val_t-pos: 412.0000 - val_f-pos: 206.0000 - val_t-neg: 9466.0000 - val_f-neg: 662.0000
+val_accuracy: 0.9169 - val_precision: 0.6241 - val_recall: 0.4236 - val_roc-auc: 0.9087 - val_pr-auc: 0.5919
+
+Test:
+loss: 0.2094 - t-pos: 590.0000 - f-pos: 292.0000 - t-neg: 13567.0000 - f-neg: 918.0000
+accuracy: 0.9198 - precision: 0.6322 - recall: 0.4377 - roc-auc: 0.9134 - pr-auc: 0.5923

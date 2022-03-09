@@ -1,0 +1,33 @@
+Linear model
+Output sigmoid
+LR 0.01
+Epochs 35
+Batch size 100
+Classification threshold 0.45
+Validation split 0.3
+------------------------------------------------------------------------------------------------------------------
+1. Wind speed, wind gust, wind direction variation, rain, intensity, visibility, qnh
+Training:
+loss: 0.1974 - t-pos: 834.0000 - f-pos: 393.0000 - t-neg: 22223.0000 - f-neg: 1621.0000
+accuracy: 0.9193 - precision: 0.6449 - recall: 0.3906 - roc-auc: 0.9102 - pr-auc: 0.5722
+
+Validation:
+val_loss: 0.2029 - val_t-pos: 351.0000 - val_f-pos: 160.0000 - val_t-neg: 9512.0000 - val_f-neg: 723.0000
+val_accuracy: 0.9163 - val_precision: 0.6486 - val_recall: 0.3557 - val_roc-auc: 0.9061 - val_pr-auc: 0.5680
+
+Test:
+loss: 0.1996 - t-pos: 486.0000 - f-pos: 235.0000 - t-neg: 13624.0000 - f-neg: 1022.0000
+accuracy: 0.9186 - precision: 0.6496 - recall: 0.3700 - roc-auc: 0.9079 - pr-auc: 0.5657
+------------------------------------------------------------------------------------------------------------------
+2. Above features + month:
+Training:
+loss: 0.1964 - t-pos: 872.0000 - f-pos: 410.0000 - t-neg: 22206.0000 - f-neg: 1583.0000
+accuracy: 0.9194 - precision: 0.6408 - recall: 0.4033 - roc-auc: 0.9114 - pr-auc: 0.5771
+
+Validation:
+val_loss: 0.2029 - val_t-pos: 355.0000 - val_f-pos: 176.0000 - val_t-neg: 9496.0000 - val_f-neg: 719.0000
+val_accuracy: 0.9158 - val_precision: 0.6331 - val_recall: 0.3743 - val_roc-auc: 0.9053 - val_pr-auc: 0.5699
+
+Test:
+loss: 0.1991 - t-pos: 505.0000 - f-pos: 252.0000 - t-neg: 13607.0000 - f-neg: 1003.0000
+accuracy: 0.9170 - precision: 0.6302 - recall: 0.3740 - roc-auc: 0.9087 - pr-auc: 0.5681

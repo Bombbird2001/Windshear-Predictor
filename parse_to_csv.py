@@ -53,7 +53,7 @@ def matchRain(metar):
 		return ("1", "1")
 
 
-test_ratio = 0.2
+test_ratio = 0.3
 files = sys.argv
 files.pop(0)
 for file in files:
@@ -62,9 +62,10 @@ for file in files:
 		data = f.read().split("\n")
 		with open(file + "/" + file + "_train.csv", "w+") as output:
 			with open(file + "/" + file + "_test.csv", "w+") as test:
-				output.write("windSpdKts,gustKts,windVrbDeg,intensity,rain,visibilityMtrs,qnh,ws")
-				test.write("windSpdKts,gustKts,windVrbDeg,intensity,rain,visibilityMtrs,qnh,ws")
+				output.write("month,windSpdKts,gustKts,windVrbDeg,intensity,rain,visibilityMtrs,qnh,ws")
+				test.write("month,windSpdKts,gustKts,windVrbDeg,intensity,rain,visibilityMtrs,qnh,ws")
 				for line in data:
+					month = line[4:6]
 					filterData = " ".join(line.split("BECMG")[0].split("TEMPO")[0].split("PROB30")[0].split("PROB40")[0].split("RMK")[0].split(" ")[4:])
 					try:
 						windSpd, windGust = matchWindSpd(filterData)
@@ -74,7 +75,7 @@ for file in files:
 						if windGust is None:
 							windGust = "0"
 						intensity, rain = matchRain(filterData)
-						text = "\n" + windSpd + "," + windGust + "," + matchWindVrb(filterData) + "," + intensity + "," + rain + "," + matchVisibility(filterData) + "," + matchQnh(filterData) + "," + matchWs(filterData)
+						text = "\n" + month + "," + windSpd + "," + windGust + "," + matchWindVrb(filterData) + "," + intensity + "," + rain + "," + matchVisibility(filterData) + "," + matchQnh(filterData) + "," + matchWs(filterData)
 						test.write(text) if random.random() <= test_ratio else output.write(text)
 					except Exception as e:
 						print(e)

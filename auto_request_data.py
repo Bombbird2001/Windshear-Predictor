@@ -3,6 +3,7 @@ import sys
 import json
 from bs4 import BeautifulSoup
 from pathlib import Path
+from requests import ReadTimeout
 import time
 
 newText = []
@@ -32,7 +33,12 @@ for i in range(months):
 		month_end += 12
 		year_end -= 1
 	
-	r = requests.get(url)
+	r = None
+	try:
+		r = requests.get(url, timeout=30)
+	except ReadTimeout:
+		print("Timeout for month", i + 1)
+		continue
 	data = r.text
 	soup = BeautifulSoup(data, "html.parser")
 
